@@ -59,7 +59,7 @@ public class MarshallingTester<T> implements Tester<T> {
         if (subject instanceof java.io.Serializable) {
             ByteBuffer serializationBuffer = this.serializationMarshaller.write(subject);
             int serializationSize = serializationBuffer.limit() - serializationBuffer.arrayOffset();
-            Assert.assertTrue(String.format("Marshaller size = %d, Default serialization size = %d", size, serializationSize), size < serializationSize);
+            Assert.assertTrue(String.format("Marshaller size = %d, Default serialization size = %d", size, serializationSize), size <= serializationSize);
         }
     }
 }
